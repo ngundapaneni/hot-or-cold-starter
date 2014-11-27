@@ -82,9 +82,10 @@ $(document).ready(function(){
 	}
 
 	function clearAllFields() {
+		counter = 0;
+		$("#count").text(counter);
 		$("#feedback").text("Make your Guess!");
 		$("#userGuess").val("");
-		$("#count").text(0);
 		$("#guessList").find("li").remove();
 	}
 });
