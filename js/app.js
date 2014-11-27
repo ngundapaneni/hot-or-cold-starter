@@ -2,6 +2,8 @@
 $(document).ready(function(){
 	
 	var randomNum;
+	var counter = 0;
+
 	randomNum = generateRandomNum(); 	
 	
 	$(".new").click(function() {
@@ -31,14 +33,12 @@ $(document).ready(function(){
 	}
 	
 	function checkUserGuess(enteredNum, randomNum) {
-		var counter = 0;
-
 		if(enteredNum == "" || isNaN(enteredNum))
   		{
   			$("#feedback").text("Please enter a valid number");
   		}
   		else {
-  			refreshGuessList(counter, enteredNum); // refresh the guess list
+  			refreshGuessList(enteredNum); // refresh the guess list
 
 	  		if(randomNum != enteredNum) {	
 	  			var guessDiff = Math.abs(randomNum - enteredNum);
@@ -50,7 +50,7 @@ $(document).ready(function(){
   		}
 	}
 
-	function refreshGuessList(counter, enteredNum) {
+	function refreshGuessList(enteredNum) {
 		counter++;
   		$("#count").text(counter);
   		$("#guessList").append("<li>" + enteredNum + "</li>");
